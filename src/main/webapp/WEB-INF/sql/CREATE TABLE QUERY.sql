@@ -59,6 +59,9 @@ CREATE TABLE Donation (
     FOREIGN KEY (donation_tag_id) REFERENCES DonationTag(donation_tag_id)
 );
 
+ALTER TABLE Donation
+ADD COLUMN enable INT DEFAULT '0' NOT NULL;
+
 CREATE TABLE DonationFile (
 	donation_file_id INT(255) PRIMARY KEY AUTO_INCREMENT,
     donation_id INT(255) NOT NULL,
@@ -135,6 +138,9 @@ CREATE TABLE Talent (
     FOREIGN KEY (member_id) REFERENCES Member(member_id),
     FOREIGN KEY (talent_tag_id) REFERENCES TalentTag(talent_tag_id)
 );
+
+ALTER TABLE Talent
+ADD COLUMN enable INT DEFAULT '0' NOT NULL;
 
 CREATE TABLE TalentFile (
 	talent_file_id INT(255) PRIMARY KEY AUTO_INCREMENT,
